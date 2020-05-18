@@ -2,7 +2,7 @@ import ContactItem from "../ContactItem/ContactItem";
 import "./FindForm.css";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import React, { Component } from "react";
-import PropTypes from 'prop-types'; // ES6
+import PropTypes from "prop-types"; // ES6
 
 export default class FindForm extends Component {
   state = {
@@ -20,8 +20,10 @@ export default class FindForm extends Component {
       });
     }
   }
+
   render() {
-    const { value, onChange, list, onDelete } = this.props;
+    const { value, onChange, list,filteredList, onDelete } = this.props;
+   
     return (
       <div>
         <TransitionGroup>
@@ -44,32 +46,31 @@ export default class FindForm extends Component {
         </TransitionGroup>
 
         <TransitionGroup component="ul" className="list">
-          {value.length > 0
-            ? list.map((el) => {
-                if (
-                  el.name.toLowerCase().includes(value.trim().toLowerCase())
-                ) {
-                  return (
-                    <ContactItem key={el.id} el={el} onDelete={onDelete} />
-                  );
-                }
-              })
-            : list.map((el) => {
+           {filteredList.length === 0 && value==='' ? list.map((el) => {
                 return (
                   <CSSTransition key={el.id} timeout={200} classNames="item">
                     <ContactItem el={el} onDelete={onDelete} />
                   </CSSTransition>
                 );
-              })}
+              })
+            :
+            filteredList.map((el) => {
+              return (
+                <CSSTransition key={el.id} timeout={200} classNames="item">
+                  <ContactItem el={el} onDelete={onDelete} />
+                </CSSTransition>
+              );
+            })} 
+
         </TransitionGroup>
       </div>
     );
   }
 }
 
-FindForm.propTypes ={
-  value : PropTypes.string.isRequired,
-  onChange : PropTypes.func.isRequired,
-  list : PropTypes.arrayOf(PropTypes.object).isRequired,
-  onDelete : PropTypes.func.isRequired,
-}
+FindForm.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDelete: PropTypes.func.isRequired,
+};

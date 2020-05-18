@@ -13,7 +13,8 @@ export default class Phonebook extends Component {
     number: "",
     list: [],
     error : false,
-    title : false
+    title : false,
+    filteredList : []
   };
   componentDidMount() {
     this.setState({
@@ -24,6 +25,7 @@ export default class Phonebook extends Component {
         list: JSON.parse(localStorage.getItem("list")),
       });
   }
+ 
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -41,6 +43,9 @@ export default class Phonebook extends Component {
     await this.setState({
       list: updatedList,
     });
+    await this.setState({
+      filteredList : this.updateFilterList(this.state.findSearch)
+    })
     await localStorage.setItem("list", JSON.stringify(this.state.list));
   };
   addSubmit = async (e) => {
@@ -57,6 +62,9 @@ export default class Phonebook extends Component {
           ...state.list,
         ],
       }));
+      await this.setState({
+        filteredList : this.updateFilterList(this.state.findSearch)
+      })
       await localStorage.setItem("list", JSON.stringify(this.state.list));
   }
   else{
@@ -72,8 +80,21 @@ export default class Phonebook extends Component {
   this.reset();
   };
 
+  updateFilterList=(query) =>{
+   return this.state.list.filter((el) =>
+      el.name.toLowerCase().includes(query.trim().toLowerCase())
+    )
+  }
+
+  filterChange = async (e) =>{
+    await this.setState({
+      [e.target.name]: e.target.value,
+      filteredList :  this.updateFilterList(e.target.value)
+    });
+  }
+
   render() {
-    const { addFormName, findSearch, number, list,error ,title} = this.state;
+    const { addFormName, findSearch, number, filteredList,error,list ,title} = this.state;
     return (
       <section className="section">
         <CSSTransition
@@ -111,8 +132,9 @@ export default class Phonebook extends Component {
         />
         <FindForm
           value={findSearch}
-          onChange={this.handleChange}
+          onChange={this.filterChange}
           list={list}
+          filteredList={filteredList}
           onDelete={this.delete}
         />
       </section>
