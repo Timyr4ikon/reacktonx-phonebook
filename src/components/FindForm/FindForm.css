@@ -1,0 +1,40 @@
+.inputSearch{
+    display: block;
+    width: 90%;
+    height: 40px;
+    border: 1px solid #7c7c7c;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    color: blueviolet;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+}
+.findSection{
+    padding: 15px;box-shadow: 0px 0px 4px  #666666;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+.list{
+    margin-top: 15px;
+}
+
+
+.item-enter {
+    opacity: 0;
+  }
+  .item-enter-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+  }
+  .item-exit {
+    opacity: 1;
+  }
+  .item-exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+  }
+  

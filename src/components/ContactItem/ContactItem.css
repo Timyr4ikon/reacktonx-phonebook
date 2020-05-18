@@ -1,0 +1,33 @@
+.item{
+    display: flex;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 4px  #666666;
+    padding: 15px;
+    align-items: center;
+}
+.label1{
+    width: 30%;
+    display: block;
+    min-width: 130px;
+}
+.label2{
+    width: 50%;
+    display: block;
+    text-align: center;
+}   
+.button{    
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin-left: auto;
+    text-align: center;
+    padding: 0;
+    font-weight: 700;
+    color: snow;
+    border: none;
+    background-color: red;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #ad3131;
+}

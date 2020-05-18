@@ -1,0 +1,50 @@
+.section{
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 15px;
+    position: relative;
+}
+.title{
+    font-size: 24px;
+    color: purple;
+    font-weight: 700;
+  transform: translateX(20px);
+  margin-bottom: 15px;
+}
+
+
+
+.alerts {
+  padding: 10px 20px;
+  background-color: #8b0e0e;
+  color: #004085;
+  margin-top: 20px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  color: snow;
+}
+
+.alert-enter {
+  opacity: 0;
+}
+
+.alert-enter-active {
+  transition: opacity 250ms ease-out;
+  opacity: 1;
+}
+
+.alert-exit-active {
+  transition: opacity 250ms ease-out;
+  opacity: 0;
+}
+
+
+.title-enter{
+  transform: translateX(-20px);
+}
+.title-enter-active {
+  transition: transform 500ms ease-out;
+  transform: translateX(20px);
+}
