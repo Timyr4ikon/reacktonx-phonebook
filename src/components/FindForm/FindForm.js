@@ -26,7 +26,7 @@ export default class FindForm extends Component {
    
     return (
       <div>
-        <TransitionGroup>
+        {list.length !== 0 ? <><TransitionGroup>
           {this.state.alert && (
             <CSSTransition
               in={this.state.alert}
@@ -62,7 +62,7 @@ export default class FindForm extends Component {
               );
             })} 
 
-        </TransitionGroup>
+        </TransitionGroup></> : <p className="first-contact animate__animated animate__bounce animate__heartBeat">Add your first Contact</p>}
       </div>
     );
   }

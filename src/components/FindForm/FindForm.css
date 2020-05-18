@@ -37,4 +37,11 @@
     opacity: 0;
     transition: opacity 200ms ease-in;
   }
+
+  .first-contact{
+    font-style: 20px;
+    color: blueviolet;
+    font-weight: 700;
+    text-align: center;
+  }
   

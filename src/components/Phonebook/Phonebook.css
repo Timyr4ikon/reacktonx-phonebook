@@ -11,6 +11,7 @@
     font-weight: 700;
   transform: translateX(20px);
   margin-bottom: 15px;
+  width: fit-content;
 }
 
 
