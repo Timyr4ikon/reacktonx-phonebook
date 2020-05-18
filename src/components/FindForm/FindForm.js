@@ -18,6 +18,7 @@ export default class FindForm extends Component {
       this.setState({
         alert: false,
       });
+      this.props.reset()
     }
   }
 
@@ -46,6 +47,7 @@ export default class FindForm extends Component {
         </TransitionGroup>
 
         <TransitionGroup component="ul" className="list">
+
            {filteredList.length === 0 && value==='' ? list.map((el) => {
                 return (
                   <CSSTransition key={el.id} timeout={200} classNames="item">

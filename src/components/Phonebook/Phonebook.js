@@ -35,6 +35,7 @@ export default class Phonebook extends Component {
     this.setState({
       addFormName: "",
       number: "",
+    findSearch: "",
     });
   };
   delete = async (e) => {
@@ -136,6 +137,7 @@ export default class Phonebook extends Component {
           list={list}
           filteredList={filteredList}
           onDelete={this.delete}
+          reset={this.reset}
         />
       </section>
     );
